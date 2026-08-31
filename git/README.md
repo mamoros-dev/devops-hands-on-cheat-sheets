@@ -6,6 +6,16 @@ A comprehensive reference guide for everyday Git operations, advanced branch str
 
 ## 🗺️ Command Reference / Guía de Comandos
 
+#### 📌 Table of contents / Tabla de contenidos
+- [Platform Installation & Initial Setup](#platform-installation--initial-setup--instalación-y-configuración)
+- [Basic Lifecycle Commands](#basic-lifecycle-commands--ciclo-de-vida-básico)
+- [Branching & Merging Strategies](#branching--merging-strategies--estrategia-de-ramas)
+- [Advanced Rebasing & History Rewriting](#advanced-rebasing--history-rewriting--rebase-avanzado)
+- [Undoing Changes & Recovery](#undoing-changes--recovery--deshacer-cambios-y-recuperación)
+- [Stashing & Temporary Storage](#stashing--temporary-storage--guardado-temporal)
+
+---
+
 ### Platform Installation & Initial Setup / Instalación y Configuración
 
 #### 🐧 Installation / Instalación
@@ -16,6 +26,11 @@ sudo apt update && sudo apt install -y git
 
 # macOS (Homebrew)
 brew install git
+
+# Windows (WSL2)
+sudo apt update && sudo apt install -y git
+# Windows terminal
+winget install --id Git.Git -e --source winget
 ```
 
 ---
