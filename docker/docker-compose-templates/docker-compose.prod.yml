@@ -1,0 +1,84 @@
+version: '3.8'
+
+# Production multi-container environment (Nginx Proxy + App + Redis + PostgreSQL)
+# Entorno multi-contenedor de producción (Proxy Nginx + App + Redis + PostgreSQL)
+
+services:
+  # 1. Reverse Proxy (Nginx)
+  proxy:
+    image: nginx:alpine
+    container_name: prod_proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - app
+    networks:
+      - frontend_net
+
+  # 2. Application Service / Servicio de Aplicación
+  app:
+    build:
+      context: ..
+      dockerfile: Dockerfile-multistage
+    container_name: prod_app
+    restart: always
+    environment:
+      - DATABASE_URL=postgres://db_user:db_password@db:5432/production_db
+      - REDIS_URL=redis://cache:6379
+    depends_on:
+      db:
+        condition: service_healthy
+      cache:
+        condition: service_started
+    networks:
+      - frontend_net
+      - backend_net
+
+  # 3. Cache Database (Redis)
+  cache:
+    image: redis:7-alpine
+    container_name: prod_cache
+    restart: always
+    command: redis-server --save 60 1 --loglevel notice
+    volumes:
+      - cache_data:/data
+    networks:
+      - backend_net
+
+  # 4. Primary Database (PostgreSQL)
+  db:
+    image: postgres:16-alpine
+    container_name: prod_db
+    restart: always
+    environment:
+      POSTGRES_USER: db_user
+      POSTGRES_PASSWORD: db_password
+      POSTGRES_DB: production_db
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U db_user -d production_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - backend_net
+
+# Networks isolation / Aislamiento de Redes
+networks:
+  frontend_net:
+    driver: bridge
+  backend_net:
+    driver: bridge
+    internal: true # No external internet access / Sin acceso directo a Internet exterior
+
+# Persistent Storage / Almacenamiento Persistente
+volumes:
+  db_data:
+    driver: local
+  cache_data:
+    driver: local
