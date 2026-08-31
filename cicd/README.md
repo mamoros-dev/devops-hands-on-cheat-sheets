@@ -6,6 +6,12 @@ A unified reference guide covering Continuous Integration and Continuous Deploym
 
 ## 🗺️ Command Reference / Guía de Comandos
 
+#### 📌 Table of contents / Tabla de contenidos
+- [Core CI/CD Concepts](#core-cicd-concepts--conceptos-fundamentales)
+- [GitHub Actions Architecture](#github-actions-architecture--arquitectura-de-github-actions)
+- [GitLab CI/CD Architecture](#gitlab-cicd-architecture--arquitectura-de-gitlab-cicd)
+- [Comparison: GitHub Actions vs GitLab CI](#comparison-github-actions-vs-gitlab-ci)
+
 ---
 
 ### Core CI/CD Concepts / Conceptos Fundamentales
