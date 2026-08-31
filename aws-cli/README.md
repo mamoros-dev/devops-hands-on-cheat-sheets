@@ -6,6 +6,15 @@ A production-ready reference guide covering AWS CLI v2 installation across opera
 
 ## 🗺️ Command Reference / Guía de Comandos
 
+#### 📌 Table of contents / Tabla de contenidos
+- [Platform Installation Guides](#platform-installation-guides--guías-de-instalación)
+- [Authentication & Profiles](#authentication--profiles--autenticación-y-perfiles)
+- [S3 (Simple Storage Service) Commands](#s3-simple-storage-service-commands--comandos-s3)
+- [EC2 & VPC Commands](#ec2--vpc-commands--comandos-ec2-y-redes)
+- [EKS & Container Services](#eks--container-services--servicios-de-contenedores)
+
+---
+
 ### Platform Installation Guides / Guías de Instalación
 
 #### 🐧 Linux x86_64 / WSL2
