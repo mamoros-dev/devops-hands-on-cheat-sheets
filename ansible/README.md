@@ -7,9 +7,9 @@ A production-ready reference guide for automated server provisioning, applicatio
 ## 🗺️ Command Reference / Guía de Comandos
 
 #### 📌 Table of contents / Tabla de contenidos
-1. [Platform Installation Guides](#platform-installation-guides--guías-de-instalación)
-2. [CLI Command Reference](#cli-command-reference--comandos-esenciales)
-3. [Ansible Vault & Secrets Management](#ansible-vault--secrets-management--gestión-de-secretos)
+- [Platform Installation Guides](#platform-installation-guides--guías-de-instalación)
+- [CLI Command Reference](#cli-command-reference--comandos-esenciales)
+- [Ansible Vault & Secrets Management](#ansible-vault--secrets-management--gestión-de-secretos)
 
 ---
 
