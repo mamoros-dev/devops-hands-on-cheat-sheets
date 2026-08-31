@@ -1,0 +1,60 @@
+stages:
+  - test
+  - build
+  - deploy
+
+default:
+  image: node:20-alpine
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - .npm/
+
+# -----------------------------------------------------------------------------
+# Stage: Test
+# -----------------------------------------------------------------------------
+lint_and_test_job:
+  stage: test
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run lint --if-present
+    - npm test --if-present
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH == "main"'
+
+# -----------------------------------------------------------------------------
+# Stage: Build
+# -----------------------------------------------------------------------------
+build_container_job:
+  stage: build
+  image: docker:24.0.5
+  services:
+    - docker:24.0.5-dind
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA -t $CI_REGISTRY_IMAGE:latest .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
+    - docker push $CI_REGISTRY_IMAGE:latest
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+
+# -----------------------------------------------------------------------------
+# Stage: Deploy
+# -----------------------------------------------------------------------------
+deploy_production_job:
+  stage: deploy
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache bash curl openssh-client
+    - chmod +x ./cicd/gitlab-ci/scripts/deploy.sh
+  script:
+    - ./cicd/gitlab-ci/scripts/deploy.sh
+  environment:
+    name: production
+    url: https://api.example.com
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      when: manual
