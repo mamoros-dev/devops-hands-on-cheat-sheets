@@ -1,0 +1,20 @@
+# Managed by Ansible - Do not edit manually
+
+server {
+    listen {{ http_port }} default_server;
+    listen [::]:{{ http_port }} default_server;
+
+    root {{ doc_root }};
+    index index.html index.htm;
+
+    server_name {{ nginx_server_name }};
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    error_page 500 502 503 504 /5x.html;
+    location = /5x.html {
+        root /usr/share/nginx/html;
+    }
+}

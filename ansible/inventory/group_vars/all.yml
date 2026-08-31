@@ -1,0 +1,6 @@
+---
+# Global variables applied to all infrastructure / Variables globales aplicadas a toda la infraestructura
+http_port: 80
+app_name: devops-microservice
+admin_email: admin@company.local
+time_zone: Europe/Madrid

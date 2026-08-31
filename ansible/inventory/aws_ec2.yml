@@ -1,0 +1,16 @@
+# AWS Dynamic Inventory Plugin / Plugin de Inventario Dinámico AWS
+plugin: amazon.aws.aws_ec2
+regions:
+  - eu-west-1
+filters:
+  instance-state-name: running
+keyed_groups:
+  - key: tags.Environment
+    prefix: env
+  - key: tags.Role
+    prefix: role
+hostnames:
+  - ip-address
+  - dns-name
+compose:
+  ansible_host: public_ip_address

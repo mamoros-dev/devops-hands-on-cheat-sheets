@@ -1,0 +1,4 @@
+---
+# Master Orchestrator Playbook / Playbook maestro de orquestación
+- import_playbook: common.yml
+- import_playbook: webservers.yml

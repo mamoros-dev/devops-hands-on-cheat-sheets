@@ -1,0 +1,5 @@
+---
+# Variables specific to [webservers] group / Variables específicas para el grupo [webservers]
+nginx_worker_connections: 1024
+nginx_server_name: app.company.local
+doc_root: /var/www/html

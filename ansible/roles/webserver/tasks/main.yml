@@ -1,0 +1,37 @@
+---
+- name: Install Nginx package / Instalar paquete Nginx
+  ansible.builtin.apt:
+    name: "{{ nginx_package_name }}"
+    state: present
+    update_cache: yes
+
+- name: Deploy custom Nginx virtual host configuration / Desplegar plantilla Nginx
+  ansible.builtin.template:
+    src: nginx.conf.j2
+    dest: "{{ nginx_config_path }}"
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart Nginx
+
+- name: Ensure index.html document root exists / Crear directorio de contenido
+  ansible.builtin.file:
+    path: "{{ doc_root }}"
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: '0755'
+
+- name: Deploy basic HTML landing page / Desplegar index.html inicial
+  ansible.builtin.copy:
+    content: "<h1>Provisioned by Ansible - {{ app_name }}</h1>"
+    dest: "{{ doc_root }}/index.html"
+    owner: www-data
+    group: www-data
+    mode: '0644'
+
+- name: Ensure Nginx service is running and enabled / Garantizar servicio activo
+  ansible.builtin.systemd:
+    name: "{{ nginx_package_name }}"
+    state: "{{ nginx_service_state }}"
+    enabled: "{{ nginx_service_enabled }}"

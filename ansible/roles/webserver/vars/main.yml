@@ -1,0 +1,3 @@
+---
+# Internal immutable vars for webserver role / Variables internales inmutables para el rol webserver
+nginx_config_path: /etc/nginx/sites-available/default
