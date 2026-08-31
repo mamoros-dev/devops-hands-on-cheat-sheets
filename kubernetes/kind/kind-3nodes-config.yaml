@@ -1,0 +1,22 @@
+# Multi-node Kind Cluster (1 Control Plane + 2 Workers) with Ingress Port Mappings
+# Cluster Kind Multinodo (1 Control Plane + 2 Workers) con mapeo de puertos para Ingress
+
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  kubeadmConfigPatches:
+  - |
+    kind: InitConfiguration
+    nodeRegistration:
+      kubeletExtraArgs:
+        node-labels: "ingress-ready=true"
+  extraPortMappings:
+  - containerPort: 80
+    hostPort: 80
+    protocol: TCP
+  - containerPort: 443
+    hostPort: 443
+    protocol: TCP
+- role: worker
+- role: worker

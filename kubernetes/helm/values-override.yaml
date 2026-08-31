@@ -1,0 +1,17 @@
+# Custom values override for Nginx Ingress Controller Helm Chart
+# Valores personalizados para sobreescribir el Chart oficial de Nginx Ingress Controller
+
+controller:
+  replicaCount: 2
+  resources:
+    requests:
+      cpu: "100m"
+      memory: "128Mi"
+    limits:
+      cpu: "250m"
+      memory: "256Mi"
+  service:
+    type: NodePort
+    ports:
+      http: 80
+      https: 443

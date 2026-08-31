@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-migration-job
+  namespace: devops-lab
+spec:
+  backoffLimit: 3
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - name: migration
+        image: busybox:latest
+        command: ["sh", "-c", "echo Running DB migrations... && sleep 5"]

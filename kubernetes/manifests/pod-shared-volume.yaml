@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: shared-volume-pod
+  namespace: devops-app
+spec:
+  volumes:
+  - name: shared-data
+    emptyDir: {}
+  containers:
+  # Contenedor 1: Escribe un log/HTML de forma periódica
+  - name: writer-sidecar
+    image: busybox:1.36
+    command: ["/bin/sh", "-c"]
+    args:
+      - while true; do
+          echo "$(date) - Service Status: OK" >> /usr/share/nginx/html/index.html;
+          sleep 10;
+        done
+    volumeMounts:
+    - name: shared-data
+      mountPath: /usr/share/nginx/html
+  # Contenedor 2: Servidor Web Nginx que sirve el archivo creado por el primer contenedor
+  - name: web-server
+    image: nginx:alpine
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - name: shared-data
+      mountPath: /usr/share/nginx/html

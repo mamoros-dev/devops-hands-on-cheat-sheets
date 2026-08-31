@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-service-deployment
+  namespace: devops-app
+  labels:
+    app.kubernetes.io/name: payment-service
+    app.kubernetes.io/instance: payment-service-prod
+    app.kubernetes.io/version: "1.2.0"
+    app.kubernetes.io/component: backend
+    app.kubernetes.io/part-of: e-commerce-platform
+    environment: production
+    managed-by: kubectl
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: payment-service
+      environment: production
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: payment-service
+        app.kubernetes.io/instance: payment-service-prod
+        app.kubernetes.io/version: "1.2.0"
+        app.kubernetes.io/component: backend
+        environment: production
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+        build.number: "402"
+    spec:
+      containers:
+      - name: payment-api
+        image: nginx:alpine
+        ports:
+        - containerPort: 80

@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: daily-backup-cronjob
+  namespace: devops-lab
+spec:
+  schedule: "0 2 * * *"  # Ejecutar cada día a las 02:00 AM
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: backup
+            image: busybox:latest
+            command: ["sh", "-c", "echo Executing backup..."]
