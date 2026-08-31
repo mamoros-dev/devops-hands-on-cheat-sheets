@@ -4,6 +4,17 @@ This directory contains technical reference guides, architecture patterns, and a
 
 ## 🗺️ Quick Reference Guide
 
+#### 📌 Table of contents / Tabla de contenidos
+- [File & Directory Operations](#file--directory-operations--operaciones-de-archivos-y-directorios)
+- [Permissions & Ownership](#permissions--ownership--permisos-y-propietarios)
+- [Text Processing & Searching](#text-processing--searching--procesamiento-de-texto-y-b%C3%BAsquedas)
+- [Archive & Compression](#archive--compression--compresi%C3%B3n-y-archivado)
+- [I/O Redirection & Pipelines](#io-redirection--pipelines--redirecci%C3%B3n-io-y-flujos-de-datos)
+- [Networking & HTTP Requests](#networking--http-requests--redes-y-peticiones-http)
+- [Process Management & System Diagnostics](#process-management--system-diagnostics--diagn%C3%B3stico-de-procesos-y-sistema)
+- [Logs and Services (Systemd)](#logs-and-services-systemd--logs-y-servicios-systemd)
+---
+
 ### File & Directory Operations / Operaciones de Archivos y Directorios
 
 ```bash
