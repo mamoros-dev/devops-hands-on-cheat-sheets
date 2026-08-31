@@ -1,7 +1,7 @@
 # 🛠️ DevOps & Cloud Infrastructure Labs
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
+[![Dependabot](https://img.shields.io/badge/Dependabot-active-0288d1?logo=dependabot)](./.github/dependabot.yml)  
 + Centralized knowledge base, production-ready cheat sheets, conceptual architectural diagrams (powered by **Mermaid**), automation scripts, and Infrastructure as Code (IaC) templates. 
 
 + Designed to serve as a daily reference guide for terminal environment operations and a production-grade testing playground.

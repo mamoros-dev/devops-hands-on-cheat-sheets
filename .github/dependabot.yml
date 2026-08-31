@@ -1,0 +1,31 @@
+# .github/dependabot.yml
+version: 2
+updates:
+  # ----------------------------------------------------------------------------
+  # 1. GitHub Actions (Workflows)
+  # ----------------------------------------------------------------------------
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 3
+    # Group all action updates into a single PR / Agrupar actualizaciones en un solo PR
+    groups:
+      github-actions-dependencies:
+        patterns:
+          - "*"
+
+  # ----------------------------------------------------------------------------
+  # 2. Dockerfiles (Cheat sheets templates)
+  # ----------------------------------------------------------------------------
+  - package-ecosystem: "docker"
+    directory: "/docker"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 3
+    groups:
+      docker-dependencies:
+        patterns:
+          - "*"
