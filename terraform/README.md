@@ -6,6 +6,12 @@ A modular reference guide for provisioning infrastructure on AWS using Terraform
 
 ## 🗺️ Command Reference / Guía de Comandos
 
+#### 📌 Table of contents / Tabla de contenidos
+1. [Platform Installation Guides](#platform-installation-guides--guías-de-instalación)
+2. [CLI Command Reference](#cli-command-reference--comandos-esenciales)
+3. [State & Backend Management](#state--backend-management--gestión-de-estado)
+
+---
 
 ### Platform Installation Guides / Guías de Instalación
 
@@ -24,6 +30,8 @@ sudo apt-add-repository "deb [arch=amd64] [https://apt.releases.hashicorp.com](h
 # Install Terraform / Instalar Terraform
 sudo apt-get update && sudo apt-get install terraform
 ```
+
+---
 
 ### CLI Command Reference / Comandos Esenciales
 
@@ -46,6 +54,8 @@ terraform apply tfplan
 # Destroy infrastructure managed by Terraform / Destruir la infraestructura
 terraform destroy
 ```
+
+---
 
 ### State & Backend Management / Gestión de Estado
 
