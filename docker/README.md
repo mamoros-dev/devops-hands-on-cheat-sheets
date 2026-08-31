@@ -4,6 +4,17 @@ A production-grade reference guide covering Docker CLI management, multi-stage b
 
 ## 🗺️ Command Reference / Guía de Comandos
 
+#### 📌 Table of contents / Tabla de contenidos
+- [Platform Installation Guides](#%EF%B8%8F-platform-installation-guides--guías-de-instalación)
+- [Container Lifecycle Management](#container-lifecycle-management--gestión-del-ciclo-de-vida-de-contenedores)
+- [Image Management](#image-management--gestión-de-imágenes)
+- [Inspection & Troubleshooting](#inspection--troubleshooting--inspección-y-diagnóstico)
+- [Networks & Volumes](#networks--volumes--redes-y-volúmenes)
+- [System Cleanup](#system-cleanup--limpieza-del-sistema)
+- [Docker Compose Commands](#docker-compose-commands--comandos-de-docker-compose)
+
+---
+
 ### ⚒️ Platform Installation Guides / Guías de Instalación
 
 #### 🐧 Ubuntu / Debian (Official Repository / Repositorio Oficial)
