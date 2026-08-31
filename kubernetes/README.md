@@ -4,6 +4,15 @@ A complete reference guide for Kubernetes cluster management, local development 
 
 ## 🗺️ Command Reference / Guía de Comandos
 
+#### 📌 Table of contents / Tabla de contenidos
+- [Tooling Installation Guides](#tooling-installation-guides--instalación-de-herramientas)
+- [Cluster Setup with Kind](#cluster-setup-with-kind--configuración-de-cluster-con-kind)
+- [Kubectl Command Reference](#kubectl-command-reference--guía-de-comandos-kubectl)
+- [Package Management with Helm](#package-management-with-helm--gestión-de-paquetes-con-helm)
+- [Troubleshooting & Debugging](#troubleshooting--debugging--diagnóstico-y-depuración)
+
+---
+
 ### Tooling Installation Guides / Instalación de Herramientas
 
 #### 🛠️ kubectl, Kind & Helm Installation (Linux / WSL2)
