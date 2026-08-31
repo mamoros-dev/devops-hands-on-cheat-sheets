@@ -2,6 +2,8 @@
 
 A production-grade reference guide covering Docker CLI management, multi-stage builds, network isolation, volumes, and Docker Compose orchestration templates.
 
+---
+
 ## 🗺️ Command Reference / Guía de Comandos
 
 #### 📌 Table of contents / Tabla de contenidos
@@ -71,6 +73,8 @@ brew install colima docker docker-compose
 colima start --cpu 2 --memory 4
 ```
 
+---
+
 ### Container Lifecycle Management / Gestión del Ciclo de Vida de Contenedores
 ```bash
 # Run container in background mapping ports and naming it / Ejecutar contenedor en segundo plano con puerto y nombre
@@ -101,6 +105,8 @@ docker rm web-server
 docker rm -f web-server
 ```
 
+---
+
 ### Image Management / Gestión de Imágenes
 
 ```bash
@@ -126,6 +132,8 @@ docker rmi my-app:v1.0.0
 docker history my-app:v1.0.0
 ```
 
+---
+
 ### Inspection & Troubleshooting / Inspección y Diagnóstico
 
 ```bash
@@ -144,6 +152,8 @@ docker inspect web-server
 # Display container resource utilization (CPU, RAM, Net I/O) / Monitorizar recursos en tiempo real
 docker stats
 ```
+
+---
 
 ### Networks & Volumes / Redes y Volúmenes
 
@@ -167,6 +177,8 @@ docker volume ls
 docker volume rm db_data
 ```
 
+---
+
 ### System Cleanup / Limpieza del Sistema
 
 ```bash
@@ -176,6 +188,8 @@ docker system prune -f
 # Total cleanup including unused volumes and unreferenced images / Limpieza total incluyendo volúmenes sin uso
 docker system prune -a --volumes -f
 ```
+
+---
 
 ### Docker Compose Commands / Comandos de Docker Compose
 
