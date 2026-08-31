@@ -1,0 +1,20 @@
+#!/bin/sh
+# Pre-commit hook to prevent committing sensitive keys or malformed files
+# Para activar: cp git/hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
+
+echo "🔍 Running pre-commit checks..."
+
+# Check for AWS access keys accidentally staged
+if git diff --cached | grep -E 'AKIA[0-9A-Z]{16}'; then
+    echo "❌ ERROR: AWS Access Key detected in staged files. Aborting commit!"
+    exit 1
+fi
+
+# Check for Private Keys staged
+if git diff --cached | grep -E '-----BEGIN (RSA|OPENSSH|EC) PRIVATE KEY-----'; then
+    echo "❌ ERROR: Private Key detected in staged files. Aborting commit!"
+    exit 1
+fi
+
+echo "✅ Pre-commit checks passed successfully."
+exit 0

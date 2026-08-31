@@ -1,0 +1,30 @@
+# General System Files
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment & Secrets (Crucial)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pub
+
+# Terraform / IaC
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfplan
+
+# Docker & Node
+node_modules/
+dist/
+build/
