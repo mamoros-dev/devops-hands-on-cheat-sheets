@@ -2,6 +2,8 @@
 
 This directory contains technical reference guides, architecture patterns, and automation scripts for Linux systems administration, performance tuning, and operational troubleshooting.
 
+---
+
 ## 🗺️ Quick Reference Guide
 
 #### 📌 Table of contents / Tabla de contenidos
@@ -40,6 +42,8 @@ rm -rf /tmp/temporary_folder
 ln -s /var/log/nginx/access.log ~/current_access.log
 ```
 
+---
+
 ### Permissions & Ownership / Permisos y Propietarios
 
 ```Bash
@@ -58,6 +62,8 @@ chown -R www-data:www-data /var/www/html/
 # Check special permissions (SUID/SGID/Sticky Bit) / Ver permisos especiales y Umask actual
 umask
 ```
+
+---
 
 ### Text Processing & Searching / Procesamiento de Texto y Búsquedas
 
@@ -87,6 +93,8 @@ sed -i 's/http:\/\/localhost/https:\/\/[api.domain.com/g](https://api.domain.com
 awk '{print $1, $3}' access.log
 ```
 
+---
+
 ### Archive & Compression / Compresión y Archivado
 
 ```bash
@@ -105,6 +113,8 @@ zip -r backup.zip /path/to/directory
 # Unzip an archive / Descomprimir archivo .zip
 unzip backup.zip -d /target/destination/
 ```
+
+---
 
 ### I/O Redirection & Pipelines / Redirección I/O y Flujos de Datos
 
@@ -129,6 +139,8 @@ ls /root 2> error.log
 # Pipe stdout to another command / Enlazar la salida con la entrada de otro comando
 cat access.log | grep "404" | wc -l
 ```
+
+---
 
 ### Networking & HTTP Requests / Redes y Peticiones HTTP
 
@@ -165,6 +177,8 @@ tcpdump -i eth0 -n -c 50 port 53 or port 80
 # Analyze the path hop-by-hop with latency resolution (combination of ping + traceroute) / Analizar la ruta paso a paso con resolución de latencias (mezcla de ping + traceroute)
 mtr -n --report 8.8.8.8
 ```
+
+---
 
 ### Process Management & System Diagnostics / Diagnóstico de Procesos y Sistema
 
@@ -210,6 +224,8 @@ lsof -i :80
 # 3 = frees pagecache, dentries, and inodes. Requires root privileges. / 3 = libera pagecache, dentries e inodes. Requiere permisos de root.
 sync; echo 3 > /proc/sys/vm/drop_caches
 ```
+
+---
 
 ### Logs and Services (Systemd) / Logs y Servicios (Systemd)
 
