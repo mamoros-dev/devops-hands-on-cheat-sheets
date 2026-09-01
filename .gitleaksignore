@@ -1,0 +1,2 @@
+# Ignorar secret example por secret.yaml on kubernetes
+de900e9506c33b73c3bbcd45218d752d6c9a7aba:kubernetes/manifests/secret.yaml:generic-api-key:9
